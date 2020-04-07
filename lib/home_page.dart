@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -70,15 +71,26 @@ class HomePageState extends State<HomePage> {
                 keyboardType: TextInputType.number,
                 decoration: new InputDecoration(
                   hintText: "Enter number 1",
+                  icon: Icon(
+                    Icons.phone_iphone,
+                  ),
                 ),
                 controller: t1,
+                inputFormatters: <TextInputFormatter>[
+                  WhitelistingTextInputFormatter.digitsOnly,
+                ],
               ),
               new TextField(
                 keyboardType: TextInputType.number,
                 decoration: new InputDecoration(
-                  hintText: "Enter number 2",
-                ),
+                    hintText: "Enter number 2",
+                    icon: Icon(
+                      Icons.phone_iphone,
+                    )),
                 controller: t2,
+                inputFormatters: <TextInputFormatter>[
+                  WhitelistingTextInputFormatter.digitsOnly,
+                ],
               ),
               new Padding(
                 padding: const EdgeInsets.only(top: 20.0),
